@@ -1,0 +1,16 @@
+{
+    "name": "lvcodesmith/php-expect",
+    "license": "MIT",
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "include-path": [
+        "src",
+        "src/Expect/Matchers"
+    ]
+}
