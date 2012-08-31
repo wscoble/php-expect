@@ -16,9 +16,10 @@ Expect::$matchers['matcher'] = function($actual, $expected) {
 
         }, "What to say when the negative matcher fails"
     );
-}```
+}
+```
 
-Of course, you don't need to write ```$positive_matcher = ``` or ```$negative_matcher = ```, but it helps add context.
+Of course, you don't need to write _$positive_matcher =_ or _$negative_matcher =_, but it helps add context.
 
 Here is the _toSuck_ matcher:
 ```php
@@ -33,4 +34,5 @@ Expect::$matchers['toSuck'] = function ($actual, $expected) {
             assert( $class != 'Suck' );
         }, "Expected object not to suck"
     );
-};```
+};
+```
