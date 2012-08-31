@@ -15,14 +15,12 @@
  */
 Expect::$matchers['toBeSameAs'] = function ($actual, $expected) {
     return array(
-        function () use ($actual, $expected) {
+        $positive_matcher = function () use ($actual, $expected) {
             assert( $actual === $expected );
-        },
-        "Expected objects to be the same",
+        }, "Expected objects to be the same",
 
-        function () use ($actual, $expected) {
+        $negative_matcher = function () use ($actual, $expected) {
             assert( $actual !== $expected );
-        },
-        "Expected objects to not be the same"
+        }, "Expected objects to not be the same"
     );
 };

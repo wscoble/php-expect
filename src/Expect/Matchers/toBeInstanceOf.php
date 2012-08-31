@@ -16,12 +16,12 @@
 Expect::$matchers['toBeInstanceOf'] = function ($actual, $expected) {
     $actual_class = get_class($actual);
     return array(
-        function () use ($actual_class, $expected) {
+        $positive_matcher = function () use ($actual_class, $expected) {
             assert( $actual_class == $expected );
         },
         "Expected $expected, found $actual_class.",
 
-        function () use ($actual_class, $expected) {
+        $negative_matcher = function () use ($actual_class, $expected) {
             assert( $actual_class != $expected );
         },
         "$expected not expected, but found"

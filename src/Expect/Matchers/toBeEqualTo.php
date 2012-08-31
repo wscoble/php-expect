@@ -15,14 +15,12 @@
  */
 Expect::$matchers['toBeEqualTo'] = function ($actual, $expected) {
     return array(
-        function () use ($actual, $expected) {
+        $positive_matcher = function () use ($actual, $expected) {
             assert( $actual == $expected );
-        },
-        "Expected objects to be equal",
+        }, "Expected objects to be equal",
 
-        function () use ($actual, $expected) {
+        $negative_matcher = function () use ($actual, $expected) {
             assert( $actual != $expected );
-        },
-        "Expected objects to not be equal"
+        }, "Expected objects to not be equal"
     );
 };
