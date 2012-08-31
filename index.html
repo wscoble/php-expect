@@ -28,11 +28,43 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h1>php-expect</h1>
+          <h1>Expect::your($test)-&gt;not-&gt;toSuck();</h1>
 
-<p>Provide similar assertions using the expect().to pattern found in Jasmine.</p>
+<h2>Matching that doesn't suck ... mostly</h2>
 
-<div class="highlight"><pre><span class="nx">Expect</span><span class="o">::</span><span class="na">your</span><span class="p">(</span><span class="nv">$test</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">not</span><span class="o">-&gt;</span><span class="na">toSuck</span><span class="p">();</span>
+<p>It is very easy to create a matcher using php-expect. Just put it in the Expect::$matchers static array. Here's how.</p>
+
+<h4>Matcher skeleton</h4>
+
+<div class="highlight"><pre><span class="nx">Expect</span><span class="o">::</span><span class="nv">$matchers</span><span class="p">[</span><span class="s1">'matcher'</span><span class="p">]</span> <span class="o">=</span> <span class="k">function</span><span class="p">(</span><span class="nv">$actual</span><span class="p">,</span> <span class="nv">$expected</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+        <span class="nv">$positive_matcher</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$actual</span><span class="p">,</span> <span class="nv">$expected</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="p">},</span> <span class="s2">"What to say when the positive matcher fails"</span><span class="p">,</span>
+
+        <span class="nv">$negative_matcher</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$actual</span><span class="p">,</span> <span class="nv">$expected</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="p">},</span> <span class="s2">"What to say when the negative matcher fails"</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Of course, you don't need to write <em>$positive_matcher =</em> or <em>$negative_matcher =</em>, but it helps add context.</p>
+
+<h4>The <em>toSuck</em> matcher:</h4>
+
+<div class="highlight"><pre><span class="nx">Expect</span><span class="o">::</span><span class="nv">$matchers</span><span class="p">[</span><span class="s1">'toSuck'</span><span class="p">]</span> <span class="o">=</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$actual</span><span class="p">,</span> <span class="nv">$expected</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$class</span> <span class="o">=</span> <span class="nb">get_class</span><span class="p">(</span><span class="nv">$actual</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+        <span class="nv">$positive_matcher</span> <span class="o">=</span> <span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$class</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">assert</span><span class="p">(</span> <span class="nv">$class</span> <span class="o">==</span> <span class="s1">'Suck'</span> <span class="p">);</span>
+        <span class="p">},</span> <span class="s2">"Expected object to suck"</span><span class="p">,</span>
+
+        <span class="nv">$negative_matcher</span> <span class="o">=</span> <span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$class</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">assert</span><span class="p">(</span> <span class="nv">$class</span> <span class="o">!=</span> <span class="s1">'Suck'</span> <span class="p">);</span>
+        <span class="p">},</span> <span class="s2">"Expected object not to suck"</span>
+    <span class="p">);</span>
+<span class="p">};</span>
 </pre></div>
         </section>
 
