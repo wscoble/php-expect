@@ -21,7 +21,7 @@ Expect::$matchers['matcher'] = function($actual, $expected) {
 
 Of course, you don't need to write _$positive_matcher =_ or _$negative_matcher =_, but it helps add context.
 
-Here is the _toSuck_ matcher:
+#### The _toSuck_ matcher:
 ```php
 Expect::$matchers['toSuck'] = function ($actual, $expected) {
     $class = get_class($actual);
