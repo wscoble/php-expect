@@ -61,7 +61,11 @@ class Expect
      * @return mixed
      */
     public function __call($name, $args) {
-        $expected = $args[0];
+        if (sizeof($args) == 0) {
+            $expected = null;
+        } else {
+            $expected = $args[0];
+        }
         $expect = $this;
         $do = function() use ($name, $expected, $expect) {
             $func = Expect::$matchers[$name];

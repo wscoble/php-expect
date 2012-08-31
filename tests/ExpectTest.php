@@ -2,6 +2,10 @@
 
 class ExpectTest extends \PHPUnit_Framework_TestCase
 {
+    public function testExpectYourTestNotToSuck() {
+        $test = $this;
+        Expect::your($test)->not->toSuck();
+    }
     public function testExpectAReturnsExpectObject() {
         Expect::that(new Expect(''))->toBeInstanceOf('Expect');
     }
