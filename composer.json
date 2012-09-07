@@ -1,16 +1,25 @@
 {
     "name": "lvcodesmith/php-expect",
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git://github.com/wscoble/php-webdriver"
+        }
+    ],
     "autoload": {
         "psr-0": {
             "": "src/"
-        }
+        },
+        "classmap": ["vendor/wscoble"]
     },
     "require": {
-        "php": ">=5.3.2"
+        "php": ">=5.3.2",
+        "wscoble/php-webdriver": "*"
     },
     "include-path": [
         "src",
         "src/Expect/Matchers"
-    ]
+    ],
+    "minimum-stability": "dev"
 }

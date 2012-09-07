@@ -1,5 +1,19 @@
 # Expect::your($test)->not->toSuck();
 
+## I'm on Packigist!
+
+```json
+{
+...
+    "require": {
+    ...
+        "lvcodesmith/php-expect": "dev-master"
+    ...
+    }
+...
+}
+```
+
 ## Matching that doesn't suck ... mostly
 
 It is very easy to create a matcher using php-expect. Just put it in the Expect::$matchers static array. Here's how.
