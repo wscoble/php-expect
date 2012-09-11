@@ -50,3 +50,8 @@ Expect::$matchers['toSuck'] = function ($actual, $expected) {
     );
 };
 ```
+
+## Social Updates
+This project will be using [Trello.com](https://trello.com) to manage the project.
+If you want access, please send a message to [@LVCSkunkworks](https://twitter.com/lvcskunkworks).
+Follow [@LVCSkunkworks](https://twitter.com/lvcskunkworks) to see real time activity.
