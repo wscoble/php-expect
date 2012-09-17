@@ -10,7 +10,7 @@
 if ($handle = opendir(__DIR__ . "/Expect/Matchers")) {
     while (false !== ($entry = readdir($handle))) {
         if ($entry != "." && $entry != "..")
-            require_once $entry;
+            require_once __DIR__ . "/Expect/Matchers/$entry";
     }
     closedir($handle);
 }
