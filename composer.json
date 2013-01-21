@@ -1,12 +1,6 @@
 {
     "name": "lvcodesmith/php-expect",
     "license": "MIT",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git://github.com/wscoble/php-webdriver"
-        }
-    ],
     "autoload": {
         "psr-0": {
             "": "src/"
