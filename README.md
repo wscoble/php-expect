@@ -1,5 +1,7 @@
 # Expect::your($test)->not->toSuck();
 
+[![Build Status](https://travis-ci.org/wscoble/php-expect.svg?branch=master)](https://travis-ci.org/wscoble/php-expect)
+
 ## I'm on Packigist!
 
 ```json
