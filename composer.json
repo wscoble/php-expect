@@ -13,5 +13,8 @@
         "src",
         "src/Expect/Matchers"
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    }
 }
